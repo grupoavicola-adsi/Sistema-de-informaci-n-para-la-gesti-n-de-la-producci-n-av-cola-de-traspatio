@@ -1,0 +1,290 @@
+CREATE database SipGAU;
+USE SipGAU;
+
+CREATE TABLE Pais (
+  idPais INT NOT NULL,
+  nombrePais VARCHAR(45) NOT NULL,
+  abreviaturaPais VARCHAR(45) NOT NULL,
+  PRIMARY KEY (idPais) 
+);
+Describe Pais;
+
+CREATE TABLE Departamento (
+  idDepartamento INT NOT NULL,
+  nombreDepartamento VARCHAR(45) NOT NULL,
+  Pais_idPais INT NOT NULL,
+  FOREIGN KEY (pais_idPais) REFERENCES Pais (idPais),
+  PRIMARY KEY (idDepartamento)
+);
+Describe Departamento;
+
+
+CREATE TABLE Ciudad (
+  idCiudad INT NOT NULL,
+  nombreCiudad VARCHAR(45) NOT NULL,
+  Departamento_idDepartamento INT NOT NULL,
+  FOREIGN KEY (departamento_idDepartamento) REFERENCES Departamento (idDepartamento),
+  PRIMARY KEY (idCiudad) 
+);
+Describe Ciudad;
+
+CREATE TABLE TipoDeIdentificacion (
+  idTipoDeIdentificacion INT NOT NULL,
+  nombreIdentificacion VARCHAR(45) NOT NULL,
+  abreviatura VARCHAR(45) NOT NULL,
+  PRIMARY KEY (idTipoDeIdentificacion) 
+);
+
+Describe TipoDeIdentificacion;
+
+CREATE TABLE Rol (
+  idRol INT NOT NULL,
+  NombreRol VARCHAR(45) NOT NULL,
+  PRIMARY KEY (idRol)
+);
+
+Describe Rol;
+
+
+CREATE TABLE Genero (
+  idGenero INT NOT NULL,
+  nombre VARCHAR(45) NOT NULL,
+  abreviatura VARCHAR(45) NOT NULL,
+  PRIMARY KEY (idGenero)
+);
+
+Describe Genero;
+
+
+CREATE TABLE EspecieAvicola (
+  idEspecieAvicola INT NOT NULL,
+  nombre VARCHAR(45) NOT NULL,
+  PRIMARY KEY (idEspecieAvicola)
+);
+
+Describe EspecieAvicola;
+
+
+CREATE TABLE TipoDeAnimal (
+  idTipoDeAnimal INT NOT NULL,
+  nombre VARCHAR(45) NOT NULL,
+  EspecieAvicola_idEspecieAvicola INT NOT NULL,
+  FOREIGN KEY (EspecieAvicola_idEspecieAvicola) REFERENCES EspecieAvicola (idEspecieAvicola),
+  PRIMARY KEY (idTipoDeAnimal)
+);
+
+Describe TipoDeAnimal;
+
+CREATE TABLE TipoDeVentilacion(
+  idTipodeVentilacion INT NOT NULL,
+  nombre VARCHAR(45) NOT NULL,
+  PRIMARY KEY (idTipodeVentilacion)
+);
+
+Describe TipoDeVentilacion;
+
+
+CREATE TABLE TipoDeBebedero (
+  idTipodeBebedero INT NOT NULL,
+  nombre VARCHAR(45) NOT NULL,
+  PRIMARY KEY (idTipodeBebedero)
+);
+
+Describe TipoDeBebedero;
+
+
+CREATE TABLE TipoDeComedero (
+  idTipodeComedero INT NOT NULL,
+  nombre VARCHAR(45) NOT NULL,
+  PRIMARY KEY (idTipodeComedero)
+);
+
+Describe TipoDeComedero;
+
+
+CREATE TABLE TipoDeAlimento (
+  idTipodealimento INT NOT NULL,
+  nombre VARCHAR(45) NOT NULL,
+  PRIMARY KEY (idTipodealimento)
+);
+
+Describe TipoDeAlimento;
+
+
+CREATE TABLE InformacionDeProduccion (
+  idInformacionDeProduccion INT NOT NULL,
+  fechaInicioProduccion DATE NOT NULL,
+  ValorPasivoDeProduccion bouble NOT NULL,
+  TipoDeAnimal_idTipoDeAnimal INT NOT NULL,
+  TipoDeVentilacion_idTipoDeVentilacion INT NOT NULL,
+  TipoDeBebedero_idTipoDeBebedero INT NOT NULL,
+  TipoDeComedero_idTipoDeComedero INT NOT NULL,
+  TipoDeAlimento_idTipoDeAlimento INT NOT NULL,
+  FOREIGN KEY (TipoDeAnimal_idTipoDeAnimal) REFERENCES TipoDeAnimal (idTipoDeAnimal),
+  FOREIGN KEY (TipoDeVentilacion_idTipoDeVentilacion) REFERENCES TipoDeVentilacion (idTipoDeVentilacion),
+  FOREIGN KEY (TipoDeBebedero_idTipoDeBebedero) REFERENCES TipoDeBebedero (idTipoDeBebedero),
+  FOREIGN KEY (TipoDeComedero_idTipoDeComedero) REFERENCES TipoDeComedero (idTipoDeComedero),
+  FOREIGN KEY (TipoDeAlimento_idTipoDeAlimento) REFERENCES TipoDeAlimento (idTipoDeAlimento),
+  asistenciaTecnica TINYINT NOT NULL,
+  PRIMARY KEY (idInformacionDeProduccion)
+);
+
+Describe InformacionDeProduccion;
+
+CREATE TABLE RegistroUsuario (
+  numeroIdentificacion INT NOT NULL,
+  TipoDeIdentificacion_idTipoDeIdentificacion INT NOT NULL,
+  Genero_idGenero INT NOT NULL,
+  FOREIGN KEY (TipoDeIdentificacion_idTipoDeIdentificacion) REFERENCES TipoDeIdentificacion (idTipoDeIdentificacion),
+  FOREIGN KEY (Genero_idGenero) REFERENCES Genero (idGenero),
+  nombre VARCHAR(45) NOT NULL,
+  apellido VARCHAR(45) NOT NULL,
+  razonSocial VARCHAR(45) NULL,
+  fechaDeNacimiento DATE NOT NULL,
+  correoElectronico VARCHAR(45) NOT NULL,
+  numeroTelefonico INT NOT NULL,
+  Direccion VARCHAR(45) NOT NULL,
+  Ciudad_idCiudad INT NOT NULL,
+  Rol_idRol INT NOT NULL,
+  InformacionDeProduccion_idInformacionDeProduccion INT NOT NULL,
+  FOREIGN KEY (Ciudad_idCiudad) REFERENCES Ciudad (idCiudad),
+  FOREIGN KEY (Rol_idRol) REFERENCES Rol (idRol),
+  FOREIGN KEY (InformacionDeProduccion_idInformacionDeProduccion) REFERENCES InformacionDeProduccion (idInformacionDeProduccion),
+  PRIMARY KEY (numeroIdentificacion)
+  );
+
+Describe RegistroUsuario;
+
+
+CREATE TABLE RegistroZootecnico (
+  idRegistroZootecnico INT NOT NULL,
+  fechaRegistro DATE NOT NULL,
+  pesoGanado DOUBLE NOT NULL,
+  conversionAlimenticia VARCHAR(45) NOT NULL,
+  huevoProducido INT NOT NULL,
+  huevoAveria INT NOT NULL,
+  PRIMARY KEY (idRegistroZootecnico)
+);
+
+Describe RegistroZootecnico;
+
+
+CREATE TABLE Proveedor (
+  idProveedor INT NOT NULL,
+  nombre VARCHAR(45) NOT NULL,
+  numeroTelefonico INT NOT NULL,
+  Direccion VARCHAR(45) NOT NULL,
+  correoElectronico VARCHAR(45) NOT NULL,
+  Ciudad_idCiudad INT NOT NULL,
+  FOREIGN KEY (Ciudad_idCiudad) REFERENCES Ciudad (idCiudad),
+  PRIMARY KEY (idProveedor)
+);
+
+Describe Proveedor;
+
+
+CREATE TABLE Producto (
+  idProducto INT NOT NULL,
+  nombreProducto VARCHAR(45) NOT NULL,
+  descripcion VARCHAR(45) NOT NULL,
+  precio DOUBLE NOT NULL,
+  Proveedor_idProveedor INT NOT NULL,
+  FOREIGN KEY (Proveedor_idProveedor) REFERENCES Proveedor (idProveedor),
+  PRIMARY KEY (idProducto)
+);
+
+Describe Producto;
+
+
+CREATE TABLE TipoHuevo (
+  idTipoHuevo INT NOT NULL,
+  nombre VARCHAR(45) NOT NULL,
+  abreviatura VARCHAR(45) NOT NULL,
+  peso DOUBLE NOT NULL,
+  PRIMARY KEY (idTipoHuevo)
+);
+
+Describe TipoHuevo;
+
+
+CREATE TABLE DatoDeProduccion (
+  idDatoDeProduccion INT NOT NULL,
+  RegistroUsuario_numeroIdentificacion INT NOT NULL,
+  RegistroZootecnico_idRegistroZootecnico INT NOT NULL,
+  FOREIGN KEY (RegistroUsuario_numeroIdentificacion) REFERENCES RegistroUsuario (numeroIdentificacion),
+  FOREIGN KEY (RegistroZootecnico_idRegistroZootecnico) REFERENCES RegistroZootecnico (idRegistroZootecnico),
+  fechaGestionDato DATE NOT NULL,
+  valorCostos DOUBLE NOT NULL,
+  numeroHuevoProducido INT NOT NULL,
+  TipoHuevo_idTipoHuevo INT NOT NULL,
+  Producto_idProducto INT NOT NULL,
+  FOREIGN KEY (TipoHuevo_idTipoHuevo) REFERENCES TipoHuevo (idTipoHuevo),
+  FOREIGN KEY (Producto_idProducto) REFERENCES Producto (idProducto),
+  PRIMARY KEY (idDatoDeProduccion)
+);
+
+
+Describe DatoDeProduccion;
+
+CREATE TABLE Raza (
+  idRaza INT NOT NULL,
+  nombreRaza VARCHAR(45) NOT NULL,
+  pesoPromedio DOUBLE NOT NULL,
+  PRIMARY KEY (idRaza)
+);
+
+Describe Raza;
+
+
+CREATE TABLE GestionDeInventario (
+  idMotivimiento INT NOT NULL,
+  nombre VARCHAR(45) NOT NULL,
+  descripcion VARCHAR(45) NOT NULL,
+  PRIMARY KEY (idMotivimiento)
+);
+
+Describe GestionDeInventario;
+
+
+CREATE TABLE MotivoInsumo (
+  idMotivoInsumo INT NOT NULL,
+  nombre VARCHAR(45) NOT NULL,
+  PRIMARY KEY (idMotivoInsumo)
+);
+
+Describe MotivoInsumo;
+
+
+CREATE TABLE TipoInsumo (
+  idTipoInsumo INT NOT NULL,
+  cantidad DOUBLE NOT NULL,
+  valor DOUBLE NOT NULL,
+  fechaInsumo DATE NOT NULL,
+  MotivoInsumo_idMotivoInsumo INT NOT NULL,
+  FOREIGN KEY (MotivoInsumo_idMotivoInsumo) REFERENCES MotivoInsumo (idMotivoInsumo),
+  PRIMARY KEY (idTipoInsumo)
+);
+
+Describe TipoInsumo;
+
+
+CREATE TABLE Lote (
+  idlote INT NOT NULL,  
+  fechaDeInicio DATE NOT NULL,
+  cantidad DOUBLE NOT NULL,
+  fechaConsumoDeAlimento DATE NOT NULL,
+  cantidadDeAlimento DATE NOT NULL,
+  TipoInsumo_idTipoInsumo INT NOT NULL,
+  Raza_idRaza INT NOT NULL,
+  GestionDeInventario_idMotivimiento INT NOT NULL,
+  DatoDeProduccion_idDatoDeProduccion INT NOT NULL,
+  PRIMARY KEY (idLote),
+  FOREIGN KEY (TipoInsumo_idTipoInsumo) REFERENCES TipoInsumo (idTipoInsumo),
+  FOREIGN KEY (Raza_idRaza) REFERENCES Raza (idRaza),
+  FOREIGN KEY (GestionDeInventario_idMotivimiento) REFERENCES GestionDeInventario (idMotivimiento),
+  FOREIGN KEY (DatoDeProduccion_idDatoDeProduccion) REFERENCES DatoDeProduccion (idDatoDeProduccion)
+);
+
+Describe Lote;
+
+
