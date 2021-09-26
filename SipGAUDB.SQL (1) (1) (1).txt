@@ -114,7 +114,7 @@ Describe TipoDeAlimento;
 CREATE TABLE InformacionDeProduccion (
   idInformacionDeProduccion INT NOT NULL,
   fechaInicioProduccion DATE NOT NULL,
-  ValorPasivoDeProduccion bouble NOT NULL,
+  ValorPasivoDeProduccion Double NOT NULL,
   TipoDeAnimal_idTipoDeAnimal INT NOT NULL,
   TipoDeVentilacion_idTipoDeVentilacion INT NOT NULL,
   TipoDeBebedero_idTipoDeBebedero INT NOT NULL,
@@ -142,7 +142,7 @@ CREATE TABLE RegistroUsuario (
   razonSocial VARCHAR(45) NULL,
   fechaDeNacimiento DATE NOT NULL,
   correoElectronico VARCHAR(45) NOT NULL,
-  numeroTelefonico INT NOT NULL,
+  numeroTelefonico BIGINT NOT NULL,
   Direccion VARCHAR(45) NOT NULL,
   Ciudad_idCiudad INT NOT NULL,
   Rol_idRol INT NOT NULL,
@@ -172,7 +172,7 @@ Describe RegistroZootecnico;
 CREATE TABLE Proveedor (
   idProveedor INT NOT NULL,
   nombre VARCHAR(45) NOT NULL,
-  numeroTelefonico INT NOT NULL,
+  numeroTelefonico BIGINT NOT NULL,
   Direccion VARCHAR(45) NOT NULL,
   correoElectronico VARCHAR(45) NOT NULL,
   Ciudad_idCiudad INT NOT NULL,
@@ -200,7 +200,7 @@ CREATE TABLE TipoHuevo (
   idTipoHuevo INT NOT NULL,
   nombre VARCHAR(45) NOT NULL,
   abreviatura VARCHAR(45) NOT NULL,
-  peso DOUBLE NOT NULL,
+  peso VARCHAR(11) NOT NULL,
   PRIMARY KEY (idTipoHuevo)
 );
 
@@ -239,7 +239,7 @@ Describe Raza;
 CREATE TABLE GestionDeInventario (
   idMotivimiento INT NOT NULL,
   nombre VARCHAR(45) NOT NULL,
-  descripcion VARCHAR(45) NOT NULL,
+  descripcion TEXT NOT NULL,
   PRIMARY KEY (idMotivimiento)
 );
 
