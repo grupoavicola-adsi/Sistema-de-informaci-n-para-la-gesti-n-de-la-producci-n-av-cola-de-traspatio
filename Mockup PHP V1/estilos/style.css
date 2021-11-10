@@ -1,0 +1,65 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+#header{
+  margin: auto;
+  width: 350px;
+  font-family: arial,helvetica,sans-serif;
+}
+ul,ol{
+  list-style:none;
+}
+.nav li a {
+  background-color: #f3a305;
+  color: #000000;
+  text-decoration: none;
+  padding: 10px 15px ;
+  display: block;
+}
+
+.nav li a:hover {
+  background-color:grey;
+}
+
+.nav > li {
+  float: left;
+}
+.nav li ul {
+ display:none;
+position:absolute;
+min-width:140px;
+}
+.nav li:hover > ul{
+  display: block;
+}
+
+header {
+  width:100%; /* Establecemos que el header abarque el 100% del documento */
+  overflow:hidden; /* Eliminamos errores de float */
+  background:#f3a305;
+  margin-bottom:20px;
+}
+
+.wrapper {
+  width:90%; /* Establecemos que el ancho sera del 90% */
+  max-width:1000px; /* Aqui le decimos que el ancho máximo sera de 1000px */
+  margin:auto; /* Centramos los elementos */
+  overflow:hidden; /* Eliminamos errores de float */
+}
+
+footer{
+  position: relative;
+  margin-top: 10px;
+  width: 100%;
+  overflow:hidden; /* Eliminamos errores de float */
+  background:#5c6b73;
+  margin-bottom:0px;
+  color: #fffdfe;
+  font-family:arial;
+  font-size: small;
+}
+
+body{
+  font-family:arial;
+}
