@@ -801,7 +801,7 @@
 											"top": 697,
 											"width": 133,
 											"height": 13,
-											"text": "GT4"
+											"text": "Zend"
 										},
 										{
 											"_type": "LabelView",
@@ -1513,7 +1513,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": -352,
-											"top": 400,
+											"top": 384,
 											"height": 13
 										},
 										{
@@ -1524,10 +1524,10 @@
 											},
 											"font": "Arial;13;1",
 											"left": 477,
-											"top": 817,
+											"top": 809,
 											"width": 125,
 											"height": 13,
-											"text": "MYSQL"
+											"text": "MySQL"
 										},
 										{
 											"_type": "LabelView",
@@ -1538,7 +1538,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": -352,
-											"top": 400,
+											"top": 384,
 											"width": 80.9072265625,
 											"height": 13,
 											"text": "(from Model1)"
@@ -1552,14 +1552,14 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": -352,
-											"top": 400,
+											"top": 384,
 											"height": 13,
 											"horizontalAlignment": 1
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 472,
-									"top": 810,
+									"top": 802,
 									"width": 135,
 									"height": 25,
 									"stereotypeLabel": {
@@ -1587,7 +1587,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 96,
-									"top": -128,
+									"top": -136,
 									"width": 10,
 									"height": 10
 								},
@@ -1603,7 +1603,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 96,
-									"top": -128,
+									"top": -136,
 									"width": 10,
 									"height": 10
 								},
@@ -1619,7 +1619,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 96,
-									"top": -128,
+									"top": -136,
 									"width": 10,
 									"height": 10
 								},
@@ -1635,7 +1635,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 96,
-									"top": -128,
+									"top": -136,
 									"width": 10,
 									"height": 10
 								}
@@ -1643,7 +1643,7 @@
 							"font": "Arial;13;0",
 							"containerChangeable": true,
 							"left": 472,
-							"top": 800,
+							"top": 792,
 							"width": 145,
 							"height": 121,
 							"nameCompartment": {
@@ -2416,8 +2416,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 555,
-									"top": 780,
+									"left": 556,
+									"top": 777,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -2437,8 +2437,8 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 570,
-									"top": 779,
+									"left": 571,
+									"top": 777,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -2458,8 +2458,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 526,
-									"top": 783,
+									"left": 527,
+									"top": 778,
 									"height": 13,
 									"alpha": -1.5707963267948966,
 									"distance": 15,
@@ -2501,7 +2501,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 570,
-									"top": 797,
+									"top": 799,
 									"height": 13,
 									"alpha": 0.7853981633974483,
 									"distance": 40,
@@ -2522,7 +2522,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 529,
-									"top": 793,
+									"top": 792,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 25,
@@ -2542,8 +2542,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 555,
-									"top": 766,
+									"left": 557,
+									"top": 759,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 30,
@@ -2562,8 +2562,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 568,
-									"top": 763,
+									"left": 570,
+									"top": 756,
 									"height": 13,
 									"alpha": -0.7853981633974483,
 									"distance": 40,
@@ -2582,8 +2582,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 528,
-									"top": 771,
+									"left": 529,
+									"top": 763,
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 25,
@@ -2632,7 +2632,7 @@
 								"$ref": "AAAAAAF9FOpAtPYDuzQ="
 							},
 							"lineStyle": 1,
-							"points": "541:777;542:799",
+							"points": "542:777;542:791",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAF9FPvHXA2uaJQ="
@@ -3256,7 +3256,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF5az0FqHHE+34="
 					},
-					"name": "GT4",
+					"name": "Zend",
 					"ownedElements": [
 						{
 							"_type": "UMLCommunicationPath",
@@ -3344,7 +3344,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF5az0FqHHE+34="
 					},
-					"name": "MYSQL"
+					"name": "MySQL"
 				},
 				{
 					"_type": "UMLComponent",
