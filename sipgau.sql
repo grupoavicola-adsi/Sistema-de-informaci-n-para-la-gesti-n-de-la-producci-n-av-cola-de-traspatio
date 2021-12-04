@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-11-2021 a las 04:26:48
+-- Tiempo de generación: 04-12-2021 a las 01:39:07
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.10
 
@@ -31,17 +31,17 @@ CREATE TABLE `autentificacionusuario` (
   `IdAutentificacionUsuario` int(11) NOT NULL,
   `correoElectronico` varchar(45) CHARACTER SET latin1 NOT NULL,
   `contraseña` varchar(45) CHARACTER SET latin1 NOT NULL,
-  `registroUsuario_IdNumeroIdentificacion` int(11) NOT NULL
+  `registroUsuario_IdRegistroUsuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `autentificacionusuario`
 --
 
-INSERT INTO `autentificacionusuario` (`IdAutentificacionUsuario`, `correoElectronico`, `contraseña`, `registroUsuario_IdNumeroIdentificacion`) VALUES
-(1, 'nrodriguez482@misena.edu.co', '827ccb0eea8a706c4c34a16891f84e7b', 103568452),
-(2, 'juacsuarez8@misena.edu.co', '827ccb0eea8a706c4c34a16891f84e7b', 3854721),
-(3, 'paosorio08@misena.edu.co', '827ccb0eea8a706c4c34a16891f84e7b', 1012383580);
+INSERT INTO `autentificacionusuario` (`IdAutentificacionUsuario`, `correoElectronico`, `contraseña`, `registroUsuario_IdRegistroUsuario`) VALUES
+(1, 'nrodriguez482@misena.edu.co', '81dc9bdb52d04dc20036dbd8313ed055', 3),
+(2, 'paosorio08@misena.edu.co', '81dc9bdb52d04dc20036dbd8313ed055', 1),
+(3, 'juacsuarez8@misena.edu.co', '81dc9bdb52d04dc20036dbd8313ed055', 2);
 
 -- --------------------------------------------------------
 
@@ -1382,28 +1382,29 @@ INSERT INTO `raza` (`IdRaza`, `nombreRaza`, `pesoPromedio`) VALUES
 --
 
 CREATE TABLE `registrousuario` (
-  `IdNumeroIdentificacion` int(11) NOT NULL,
-  `tipoDeIdentificacion_IdTipoDeIdentificacion` int(11) NOT NULL,
-  `genero_IdGenero` int(11) NOT NULL,
+  `IdRegistroUsuario` int(11) NOT NULL,
+  `numeroIdentificacion` int(11) NOT NULL,
   `nombre` varchar(45) NOT NULL,
   `apellido` varchar(45) NOT NULL,
   `razonSocial` varchar(45) DEFAULT NULL,
   `fechaDeNacimiento` date NOT NULL,
-  `numeroTelefonico` bigint(11) NOT NULL,
-  `direccion` varchar(45) NOT NULL,
-  `ciudad_IdCiudad` int(11) NOT NULL,
-  `rol_IdRol` int(11) NOT NULL,
-  `estado_IdEstado` int(11) NOT NULL
+  `numeroTelefonico` varchar(11) NOT NULL,
+  `Direccion` varchar(45) NOT NULL,
+  `Ciudad_idCiudad` int(11) NOT NULL,
+  `Rol_idRol` int(11) NOT NULL,
+  `TipoDeIdentificacion_idTipoDeIdentificacion` int(11) NOT NULL,
+  `Genero_idGenero` int(11) NOT NULL,
+  `Estado_IdEstado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `registrousuario`
 --
 
-INSERT INTO `registrousuario` (`IdNumeroIdentificacion`, `tipoDeIdentificacion_IdTipoDeIdentificacion`, `genero_IdGenero`, `nombre`, `apellido`, `razonSocial`, `fechaDeNacimiento`, `numeroTelefonico`, `direccion`, `ciudad_IdCiudad`, `rol_IdRol`, `estado_IdEstado`) VALUES
-(3854721, 2, 1, 'Juan Carlos', 'Suarez', 'Natural', '1985-06-20', 3143174487, 'CLL 67a # 15-45', 5, 1, 1),
-(103568452, 2, 1, 'Nicolas', 'Rodriguez', 'Natural', '1998-03-10', 3178287705, 'CLL 19 # 57h 20', 9, 2, 1),
-(1012383580, 2, 2, 'Paola Andrea', 'Osorio', 'Natural', '1991-11-08', 3125538515, 'CLL 57g # 72d 08', 4, 2, 1);
+INSERT INTO `registrousuario` (`IdRegistroUsuario`, `numeroIdentificacion`, `nombre`, `apellido`, `razonSocial`, `fechaDeNacimiento`, `numeroTelefonico`, `Direccion`, `Ciudad_idCiudad`, `Rol_idRol`, `TipoDeIdentificacion_idTipoDeIdentificacion`, `Genero_idGenero`, `Estado_IdEstado`) VALUES
+(1, 1012383580, 'Paola Andrea', 'Osorio Morales', 'Natural', '1991-11-08', '3125538515', 'Clle 57 g # 72 d 08 sur', 5, 1, 1, 2, 1),
+(2, 3854721, 'Juan Carlos', 'Suarez Ibañez', 'Natural', '1985-06-20', '3143174487', 'CLL 67a # 15-45', 3, 2, 1, 1, 1),
+(3, 103568452, 'Nicolas', 'Rodriguez Ricardo', 'Natural', '1998-03-10', '3178287705', 'CLL 19 # 57h 20', 9, 2, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1561,7 +1562,7 @@ INSERT INTO `venta` (`IdVenta`, `nombreVenta`, `totalVenta`, `fechaVenta`, `lote
 --
 ALTER TABLE `autentificacionusuario`
   ADD PRIMARY KEY (`IdAutentificacionUsuario`),
-  ADD KEY `registroUsuario_IdNumeroIdentificacion` (`registroUsuario_IdNumeroIdentificacion`);
+  ADD UNIQUE KEY `registroUsuario_IdNumeroIdentificacion` (`registroUsuario_IdRegistroUsuario`) USING BTREE;
 
 --
 -- Indices de la tabla `ciudad`
@@ -1630,12 +1631,12 @@ ALTER TABLE `raza`
 -- Indices de la tabla `registrousuario`
 --
 ALTER TABLE `registrousuario`
-  ADD PRIMARY KEY (`IdNumeroIdentificacion`),
-  ADD KEY `TipoDeIdentificacion_idTipoDeIdentificacion` (`tipoDeIdentificacion_IdTipoDeIdentificacion`),
-  ADD KEY `Genero_idGenero` (`genero_IdGenero`),
-  ADD KEY `Ciudad_idCiudad` (`ciudad_IdCiudad`),
-  ADD KEY `Rol_idRol` (`rol_IdRol`),
-  ADD KEY `estado_IdEstado` (`estado_IdEstado`);
+  ADD PRIMARY KEY (`IdRegistroUsuario`),
+  ADD KEY `TipoDeIdentificacion_idTipoDeIdentificacion` (`TipoDeIdentificacion_idTipoDeIdentificacion`),
+  ADD KEY `Genero_idGenero` (`Genero_idGenero`),
+  ADD KEY `Ciudad_idCiudad` (`Ciudad_idCiudad`),
+  ADD KEY `Rol_idRol` (`Rol_idRol`),
+  ADD KEY `Estado_IdEstado` (`Estado_IdEstado`);
 
 --
 -- Indices de la tabla `registrozootecnico`
@@ -1677,6 +1678,58 @@ ALTER TABLE `venta`
   ADD KEY `lote_idLote` (`lote_IdLote`);
 
 --
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `especieavicola`
+--
+ALTER TABLE `especieavicola`
+  MODIFY `IdEspecieAvicola` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `lote`
+--
+ALTER TABLE `lote`
+  MODIFY `IdLote` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `proveedor`
+--
+ALTER TABLE `proveedor`
+  MODIFY `IdProveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `raza`
+--
+ALTER TABLE `raza`
+  MODIFY `IdRaza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `registrousuario`
+--
+ALTER TABLE `registrousuario`
+  MODIFY `IdRegistroUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `registrozootecnico`
+--
+ALTER TABLE `registrozootecnico`
+  MODIFY `IdRegistroZootecnico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT de la tabla `tipohuevo`
+--
+ALTER TABLE `tipohuevo`
+  MODIFY `IdTipoHuevo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `venta`
+--
+ALTER TABLE `venta`
+  MODIFY `IdVenta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- Restricciones para tablas volcadas
 --
 
@@ -1704,7 +1757,11 @@ ALTER TABLE `proveedor`
 -- Filtros para la tabla `registrousuario`
 --
 ALTER TABLE `registrousuario`
-  ADD CONSTRAINT `registrousuario_ibfk_5` FOREIGN KEY (`InformacionDeProduccion_idInformacionDeProduccion`) REFERENCES `informaciondeproduccion` (`idInformacionDeProduccion`);
+  ADD CONSTRAINT `registrousuario_ibfk_1` FOREIGN KEY (`TipoDeIdentificacion_idTipoDeIdentificacion`) REFERENCES `tipodeidentificacion` (`idTipoDeIdentificacion`),
+  ADD CONSTRAINT `registrousuario_ibfk_2` FOREIGN KEY (`Genero_idGenero`) REFERENCES `genero` (`idGenero`),
+  ADD CONSTRAINT `registrousuario_ibfk_3` FOREIGN KEY (`Ciudad_idCiudad`) REFERENCES `ciudad` (`idCiudad`),
+  ADD CONSTRAINT `registrousuario_ibfk_4` FOREIGN KEY (`Rol_idRol`) REFERENCES `rol` (`idRol`),
+  ADD CONSTRAINT `registrousuario_ibfk_5` FOREIGN KEY (`Estado_IdEstado`) REFERENCES `estado` (`idEstado`);
 
 --
 -- Filtros para la tabla `tipoinsumo`
