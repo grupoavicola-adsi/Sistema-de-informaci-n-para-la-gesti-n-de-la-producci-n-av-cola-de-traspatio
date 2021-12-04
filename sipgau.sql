@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-12-2021 a las 01:39:07
+-- Tiempo de generación: 04-12-2021 a las 02:15:33
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.10
 
@@ -1762,12 +1762,6 @@ ALTER TABLE `registrousuario`
   ADD CONSTRAINT `registrousuario_ibfk_3` FOREIGN KEY (`Ciudad_idCiudad`) REFERENCES `ciudad` (`idCiudad`),
   ADD CONSTRAINT `registrousuario_ibfk_4` FOREIGN KEY (`Rol_idRol`) REFERENCES `rol` (`idRol`),
   ADD CONSTRAINT `registrousuario_ibfk_5` FOREIGN KEY (`Estado_IdEstado`) REFERENCES `estado` (`idEstado`);
-
---
--- Filtros para la tabla `tipoinsumo`
---
-ALTER TABLE `tipoinsumo`
-  ADD CONSTRAINT `tipoinsumo_ibfk_1` FOREIGN KEY (`MotivoInsumo_idMotivoInsumo`) REFERENCES `motivoinsumo` (`idMotivoInsumo`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
