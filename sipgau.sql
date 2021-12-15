@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-12-2021 a las 02:15:33
+-- Tiempo de generación: 15-12-2021 a las 03:26:30
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.10
 
@@ -29,19 +29,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `autentificacionusuario` (
   `IdAutentificacionUsuario` int(11) NOT NULL,
-  `correoElectronico` varchar(45) CHARACTER SET latin1 NOT NULL,
-  `contraseña` varchar(45) CHARACTER SET latin1 NOT NULL,
-  `registroUsuario_IdRegistroUsuario` int(11) NOT NULL
+  `correoElectronico` varchar(45) NOT NULL,
+  `contraseña` varchar(45) NOT NULL,
+  `RegistroUsuario_IdRegistroUsuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `autentificacionusuario`
 --
 
-INSERT INTO `autentificacionusuario` (`IdAutentificacionUsuario`, `correoElectronico`, `contraseña`, `registroUsuario_IdRegistroUsuario`) VALUES
-(1, 'nrodriguez482@misena.edu.co', '81dc9bdb52d04dc20036dbd8313ed055', 3),
-(2, 'paosorio08@misena.edu.co', '81dc9bdb52d04dc20036dbd8313ed055', 1),
-(3, 'juacsuarez8@misena.edu.co', '81dc9bdb52d04dc20036dbd8313ed055', 2);
+INSERT INTO `autentificacionusuario` (`IdAutentificacionUsuario`, `correoElectronico`, `contraseña`, `RegistroUsuario_IdRegistroUsuario`) VALUES
+(1, 'paosorio08@misena.edu.co', '81dc9bdb52d04dc20036dbd8313ed055', 1),
+(2, 'juacsuarez8@misena.edu.co', '81dc9bdb52d04dc20036dbd8313ed055', 2),
+(3, 'nrodriguez482@misena.edu.co', '81dc9bdb52d04dc20036dbd8313ed055', 3);
 
 -- --------------------------------------------------------
 
@@ -50,16 +50,16 @@ INSERT INTO `autentificacionusuario` (`IdAutentificacionUsuario`, `correoElectro
 --
 
 CREATE TABLE `ciudad` (
-  `idCiudad` int(11) NOT NULL,
+  `IdCiudad` int(11) NOT NULL,
   `nombreCiudad` varchar(45) NOT NULL,
-  `departamento_IdDepartamento` int(11) NOT NULL
+  `Departamento_IdDepartamento` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `ciudad`
 --
 
-INSERT INTO `ciudad` (`idCiudad`, `nombreCiudad`, `departamento_IdDepartamento`) VALUES
+INSERT INTO `ciudad` (`IdCiudad`, `nombreCiudad`, `Departamento_IdDepartamento`) VALUES
 (1, 'MEDELLIN', 1),
 (2, 'ABEJORRAL', 1),
 (3, 'ABRIAQUI', 1),
@@ -150,6 +150,7 @@ INSERT INTO `ciudad` (`idCiudad`, `nombreCiudad`, `departamento_IdDepartamento`)
 (88, 'SALGAR', 1),
 (89, 'SAN ANDRES', 1),
 (90, 'SAN CARLOS', 1),
+(91, 'SAN FRANCISCO', 1),
 (92, 'SAN JERONIMO', 1),
 (93, 'SAN JOSE DE LA MONTAÑA', 1),
 (94, 'SAN JUAN DE URABA', 1),
@@ -208,6 +209,26 @@ INSERT INTO `ciudad` (`idCiudad`, `nombreCiudad`, `departamento_IdDepartamento`)
 (147, 'TUBARA', 2),
 (148, 'USIACURI', 2),
 (149, 'Bogotá D.C.', 3),
+(150, 'LA GUADALUPE', 30),
+(151, 'CACAHUAL', 30),
+(152, 'PANA PANA - CAMPO ALEGRE', 30),
+(153, 'MORICHAL - MORICHAL NUEVO', 30),
+(154, 'SAN JOSE DEL GUAVIARE', 31),
+(155, 'CALAMAR', 31),
+(156, 'EL RETORNO', 31),
+(157, 'MIRAFLORES', 31),
+(158, 'MITU', 32),
+(159, 'CARURU', 32),
+(160, 'PACOA', 32),
+(161, 'TARAIRA', 32),
+(162, 'PAPUNAUA - MORICHAL', 32),
+(163, 'YAVARATE', 32),
+(164, 'PUERTO CARREÑO', 33),
+(165, 'LA PRIMAVERA', 33),
+(166, 'SANTA RITA', 33),
+(167, 'SANTA ROSALIA', 33),
+(168, 'SAN JOSE DE OCUNE', 33),
+(169, 'CUMARIBO', 33),
 (170, 'CARTAGENA DISTRITO TURISTICO Y CULTURAL', 4),
 (171, 'ACHI', 4),
 (172, 'ALTOS DEL ROSARIO', 4),
@@ -1144,27 +1165,7 @@ INSERT INTO `ciudad` (`idCiudad`, `nombreCiudad`, `departamento_IdDepartamento`)
 (1103, 'PUERTO INIRIDA', 30),
 (1104, 'BARRANCO MINAS', 30),
 (1105, 'SAN FELIPE', 30),
-(1106, 'PUERTO COLOMBIA', 30),
-(1107, 'LA GUADALUPE', 30),
-(1108, 'CACAHUAL', 30),
-(1109, 'PANA PANA - CAMPO ALEGRE', 30),
-(1110, 'MORICHAL - MORICHAL NUEVO', 30),
-(1111, 'SAN JOSE DEL GUAVIARE', 31),
-(1112, 'CALAMAR', 31),
-(1113, 'EL RETORNO', 31),
-(1114, 'MIRAFLORES', 31),
-(1115, 'MITU', 32),
-(1116, 'CARURU', 32),
-(1117, 'PACOA', 32),
-(1118, 'TARAIRA', 32),
-(1119, 'PAPUNAUA - MORICHAL', 32),
-(1120, 'YAVARATE', 32),
-(1121, 'PUERTO CARREÑO', 33),
-(1122, 'LA PRIMAVERA', 33),
-(1123, 'SANTA RITA', 33),
-(1124, 'SANTA ROSALIA', 33),
-(1125, 'SAN JOSE DE OCUNE', 33),
-(1126, 'CUMARIBO', 33);
+(1106, 'PUERTO COLOMBIA', 30);
 
 -- --------------------------------------------------------
 
@@ -1175,14 +1176,14 @@ INSERT INTO `ciudad` (`idCiudad`, `nombreCiudad`, `departamento_IdDepartamento`)
 CREATE TABLE `departamento` (
   `IdDepartamento` int(11) NOT NULL,
   `nombreDepartamento` varchar(45) NOT NULL,
-  `pais_IdPais` int(11) NOT NULL
+  `Pais_IdPais` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `departamento`
 --
 
-INSERT INTO `departamento` (`IdDepartamento`, `nombreDepartamento`, `pais_IdPais`) VALUES
+INSERT INTO `departamento` (`IdDepartamento`, `nombreDepartamento`, `Pais_IdPais`) VALUES
 (1, 'Antioquia', 1),
 (2, 'Atlantico', 1),
 (3, 'Bogotá D. C.', 1),
@@ -1225,14 +1226,14 @@ INSERT INTO `departamento` (`IdDepartamento`, `nombreDepartamento`, `pais_IdPais
 
 CREATE TABLE `especieavicola` (
   `IdEspecieAvicola` int(11) NOT NULL,
-  `nombre` varchar(45) NOT NULL
+  `nombreAvicola` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `especieavicola`
 --
 
-INSERT INTO `especieavicola` (`IdEspecieAvicola`, `nombre`) VALUES
+INSERT INTO `especieavicola` (`IdEspecieAvicola`, `nombreAvicola`) VALUES
 (1, 'Gallina'),
 (2, 'Codorniz');
 
@@ -1263,7 +1264,7 @@ INSERT INTO `estado` (`IdEstado`, `nombreEstado`) VALUES
 
 CREATE TABLE `genero` (
   `IdGenero` int(11) NOT NULL,
-  `nombre` varchar(45) NOT NULL,
+  `nombreGenero` varchar(45) NOT NULL,
   `abreviatura` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1271,7 +1272,7 @@ CREATE TABLE `genero` (
 -- Volcado de datos para la tabla `genero`
 --
 
-INSERT INTO `genero` (`IdGenero`, `nombre`, `abreviatura`) VALUES
+INSERT INTO `genero` (`IdGenero`, `nombreGenero`, `abreviatura`) VALUES
 (1, 'Masculino', 'M'),
 (2, 'Femenino', 'F');
 
@@ -1289,23 +1290,23 @@ CREATE TABLE `lote` (
   `cantidadHuevoProducido` int(11) NOT NULL,
   `fechaInicioDeProduccion` date NOT NULL,
   `valorPasivoDeProduccion` double NOT NULL,
-  `pesoTotal` double NOT NULL,
-  `tipoInsumo_IdTipoInsumo` int(11) NOT NULL,
-  `raza_IdRaza` int(11) NOT NULL,
-  `estado_IdEstado` int(11) NOT NULL
+  `pesoTotal` decimal(10,0) NOT NULL,
+  `TipoInsumo_IdTipoInsumo` int(11) NOT NULL,
+  `Raza_IdRaza` int(11) NOT NULL,
+  `Estado_IdEstado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `lote`
 --
 
-INSERT INTO `lote` (`IdLote`, `fechaDeInicio`, `cantidadAves`, `valorCostos`, `cantidadHuevoProducido`, `fechaInicioDeProduccion`, `valorPasivoDeProduccion`, `pesoTotal`, `tipoInsumo_IdTipoInsumo`, `raza_IdRaza`, `estado_IdEstado`) VALUES
-(1, '2021-01-10', 10, 0, 0, '2021-01-12', 0, 0, 2, 1, 1),
-(2, '2021-02-15', 30, 0, 0, '2021-01-20', 0, 0, 6, 1, 1),
-(3, '2021-02-28', 5, 0, 0, '2021-03-12', 0, 0, 6, 1, 1),
-(4, '2021-03-15', 18, 0, 0, '2021-03-25', 0, 0, 3, 1, 1),
-(5, '2021-04-10', 25, 0, 0, '2021-04-18', 0, 0, 5, 1, 1),
-(6, '2021-05-05', 10, 0, 0, '2021-05-27', 0, 0, 3, 1, 1);
+INSERT INTO `lote` (`IdLote`, `fechaDeInicio`, `cantidadAves`, `valorCostos`, `cantidadHuevoProducido`, `fechaInicioDeProduccion`, `valorPasivoDeProduccion`, `pesoTotal`, `TipoInsumo_IdTipoInsumo`, `Raza_IdRaza`, `Estado_IdEstado`) VALUES
+(1, '2021-01-10', 10, 6000000, 350, '2021-01-12', 600000, '35', 2, 1, 1),
+(2, '2021-02-15', 30, 4000000, 700, '2021-01-20', 150000, '50', 3, 1, 1),
+(3, '2021-02-28', 5, 750000, 890, '2021-03-12', 2000000, '40', 2, 2, 1),
+(4, '2021-03-15', 18, 1400000, 1100, '2021-03-25', 500000, '20', 2, 2, 1),
+(5, '2021-04-10', 25, 780000, 500, '2021-04-18', 150000, '33', 1, 2, 1),
+(6, '2021-05-05', 10, 1400000, 1000, '2021-05-27', 50000, '35', 3, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -1317,16 +1318,15 @@ CREATE TABLE `pais` (
   `IdPais` int(11) NOT NULL,
   `nombrePais` varchar(45) NOT NULL,
   `abreviaturaPais` varchar(45) NOT NULL,
-  `estado_IdEstado` int(11) NOT NULL
+  `Estado_IdEstado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `pais`
 --
 
-INSERT INTO `pais` (`IdPais`, `nombrePais`, `abreviaturaPais`, `estado_IdEstado`) VALUES
-(1, 'Colombia', 'COL', 1),
-(2, 'Peru', 'PER', 2);
+INSERT INTO `pais` (`IdPais`, `nombrePais`, `abreviaturaPais`, `Estado_IdEstado`) VALUES
+(1, 'Colombia', 'COL', 1);
 
 -- --------------------------------------------------------
 
@@ -1337,23 +1337,23 @@ INSERT INTO `pais` (`IdPais`, `nombrePais`, `abreviaturaPais`, `estado_IdEstado`
 CREATE TABLE `proveedor` (
   `IdProveedor` int(11) NOT NULL,
   `nombre` varchar(45) NOT NULL,
-  `numeroTelefonico` bigint(11) NOT NULL,
-  `direccion` varchar(45) NOT NULL,
+  `numeroTelefonico` varchar(10) NOT NULL,
+  `Direccion` varchar(45) NOT NULL,
   `correoElectronico` varchar(45) NOT NULL,
-  `ciudad_IdCiudad` int(11) NOT NULL,
-  `estado_IdEstado` int(11) NOT NULL,
-  `rol_IdRol` int(11) NOT NULL
+  `Ciudad_IdCiudad` int(11) NOT NULL,
+  `Rol_IdRol` int(11) NOT NULL,
+  `Estado_IdEstado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `proveedor`
 --
 
-INSERT INTO `proveedor` (`IdProveedor`, `nombre`, `numeroTelefonico`, `direccion`, `correoElectronico`, `ciudad_IdCiudad`, `estado_IdEstado`, `rol_IdRol`) VALUES
-(1, 'Agroindustria LTDA', 3700202, 'Cll 17 # 32-28', 'agroindustria@ltda.com', 522, 1, 3),
-(2, 'Avicola Colombiana S.A.', 2658200, 'carrera 4 A bis No. 34-43', 'avicolacolombiana@colombia.com', 962, 1, 3),
-(3, 'Alimentos consentrados del caribe S.A.', 3743211, 'Autopista el Dorado carretera soledad', 'consentrados@caribe.com', 145, 1, 3),
-(4, 'Incubacol S.A.', 3382655, 'Calle 37 No. 14-46', 'incubacion@incubalco.com', 149, 1, 3);
+INSERT INTO `proveedor` (`IdProveedor`, `nombre`, `numeroTelefonico`, `Direccion`, `correoElectronico`, `Ciudad_IdCiudad`, `Rol_IdRol`, `Estado_IdEstado`) VALUES
+(1, 'Colanta', '3700202', 'Cll 17 # 32-28', 'colanta@ltda.com', 522, 3, 1),
+(2, 'Italcol', '2658200', 'carrera 4 A bis No. 34-43', 'italco@colombia.com', 962, 3, 1),
+(3, 'Contegral', '3743211', 'Autopista el Dorado carretera soledad', 'contegral@caribe.com', 145, 3, 1),
+(4, 'Solla', '3382655', 'Calle 37 No. 14-46', 'solla@incubalco.com', 149, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -1364,16 +1364,16 @@ INSERT INTO `proveedor` (`IdProveedor`, `nombre`, `numeroTelefonico`, `direccion
 CREATE TABLE `raza` (
   `IdRaza` int(11) NOT NULL,
   `nombreRaza` varchar(45) NOT NULL,
-  `pesoPromedio` double NOT NULL
+  `pesoPromedioKL` decimal(10,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `raza`
 --
 
-INSERT INTO `raza` (`IdRaza`, `nombreRaza`, `pesoPromedio`) VALUES
-(1, 'Linea Genetica', 3),
-(2, 'Raza Tradicional', 4);
+INSERT INTO `raza` (`IdRaza`, `nombreRaza`, `pesoPromedioKL`) VALUES
+(1, 'Linea Genetica', '3'),
+(2, 'Raza Tradicional', '4');
 
 -- --------------------------------------------------------
 
@@ -1388,12 +1388,12 @@ CREATE TABLE `registrousuario` (
   `apellido` varchar(45) NOT NULL,
   `razonSocial` varchar(45) DEFAULT NULL,
   `fechaDeNacimiento` date NOT NULL,
-  `numeroTelefonico` varchar(11) NOT NULL,
+  `numeroTelefonico` varchar(10) NOT NULL,
   `Direccion` varchar(45) NOT NULL,
-  `Ciudad_idCiudad` int(11) NOT NULL,
-  `Rol_idRol` int(11) NOT NULL,
-  `TipoDeIdentificacion_idTipoDeIdentificacion` int(11) NOT NULL,
-  `Genero_idGenero` int(11) NOT NULL,
+  `Ciudad_IdCiudad` int(11) NOT NULL,
+  `Rol_IdRol` int(11) NOT NULL,
+  `TipoDeIdentificacion_IdTipoDeIdentificacion` int(11) NOT NULL,
+  `Genero_IdGenero` int(11) NOT NULL,
   `Estado_IdEstado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1401,8 +1401,8 @@ CREATE TABLE `registrousuario` (
 -- Volcado de datos para la tabla `registrousuario`
 --
 
-INSERT INTO `registrousuario` (`IdRegistroUsuario`, `numeroIdentificacion`, `nombre`, `apellido`, `razonSocial`, `fechaDeNacimiento`, `numeroTelefonico`, `Direccion`, `Ciudad_idCiudad`, `Rol_idRol`, `TipoDeIdentificacion_idTipoDeIdentificacion`, `Genero_idGenero`, `Estado_IdEstado`) VALUES
-(1, 1012383580, 'Paola Andrea', 'Osorio Morales', 'Natural', '1991-11-08', '3125538515', 'Clle 57 g # 72 d 08 sur', 5, 1, 1, 2, 1),
+INSERT INTO `registrousuario` (`IdRegistroUsuario`, `numeroIdentificacion`, `nombre`, `apellido`, `razonSocial`, `fechaDeNacimiento`, `numeroTelefonico`, `Direccion`, `Ciudad_IdCiudad`, `Rol_IdRol`, `TipoDeIdentificacion_IdTipoDeIdentificacion`, `Genero_IdGenero`, `Estado_IdEstado`) VALUES
+(1, 1012383580, 'Paola Andrea', 'Osorio Morales', 'Natural', '1991-11-08', '3125538515', 'CLL 87 # 60A 81', 20, 1, 1, 2, 1),
 (2, 3854721, 'Juan Carlos', 'Suarez Ibañez', 'Natural', '1985-06-20', '3143174487', 'CLL 67a # 15-45', 3, 2, 1, 1, 1),
 (3, 103568452, 'Nicolas', 'Rodriguez Ricardo', 'Natural', '1998-03-10', '3178287705', 'CLL 19 # 57h 20', 9, 2, 1, 1, 1);
 
@@ -1418,23 +1418,23 @@ CREATE TABLE `registrozootecnico` (
   `conversionAlimenticia` varchar(45) NOT NULL,
   `huevoProducido` int(11) NOT NULL,
   `huevoAveria` int(11) NOT NULL,
-  `estado_IdEstado` int(11) NOT NULL,
-  `lote_IdLote` int(11) NOT NULL
+  `Estado_IdEstado` int(11) NOT NULL,
+  `Lote_IdLote` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `registrozootecnico`
 --
 
-INSERT INTO `registrozootecnico` (`IdRegistroZootecnico`, `fechaRegistro`, `conversionAlimenticia`, `huevoProducido`, `huevoAveria`, `estado_IdEstado`, `lote_IdLote`) VALUES
-(1, '2020-02-20', '2.60', 50, 20, 1, 5),
+INSERT INTO `registrozootecnico` (`IdRegistroZootecnico`, `fechaRegistro`, `conversionAlimenticia`, `huevoProducido`, `huevoAveria`, `Estado_IdEstado`, `Lote_IdLote`) VALUES
+(1, '2020-02-20', '2.60', 50, 20, 1, 6),
 (2, '2021-04-10', '2.60', 50, 20, 1, 4),
-(3, '2021-04-28', '2.60', 100, 50, 1, 6),
-(4, '2021-05-20', '1.60', 40, 15, 1, 1),
-(5, '2021-06-30', '2.60', 50, 20, 1, 3),
+(3, '2021-04-28', '2.60', 100, 50, 1, 1),
+(4, '2021-05-20', '1.60', 40, 15, 1, 3),
+(5, '2021-06-30', '2.60', 50, 20, 1, 4),
 (6, '2021-07-15', '3.60', 200, 100, 1, 2),
 (7, '2021-08-20', '5.60', 400, 100, 1, 5),
-(8, '2021-09-20', '2.60', 50, 20, 1, 4);
+(8, '2021-09-20', '2.60', 50, 20, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -1475,7 +1475,7 @@ CREATE TABLE `tipodeidentificacion` (
 INSERT INTO `tipodeidentificacion` (`IdTipoDeIdentificacion`, `nombreIdentificacion`, `abreviatura`) VALUES
 (1, 'Cedula de Ciudadania', 'C.C'),
 (2, 'Pasaporte', 'PA'),
-(3, 'Cedula de Extranjeria', 'C.E.');
+(3, 'Cedula de Extranjeria', 'C.E');
 
 -- --------------------------------------------------------
 
@@ -1487,7 +1487,7 @@ CREATE TABLE `tipohuevo` (
   `IdTipoHuevo` int(11) NOT NULL,
   `nombre` varchar(45) NOT NULL,
   `abreviatura` varchar(45) NOT NULL,
-  `peso` varchar(11) NOT NULL
+  `peso` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1495,12 +1495,12 @@ CREATE TABLE `tipohuevo` (
 --
 
 INSERT INTO `tipohuevo` (`IdTipoHuevo`, `nombre`, `abreviatura`, `peso`) VALUES
-(1, 'Jumbo', 'J', '78 gr'),
-(2, 'triple A', 'AAA', '67-77 gr'),
-(3, 'Doble A', 'AA', '60-66 gr'),
-(4, 'Tipo A', 'A', '53-59 gr'),
-(5, 'Tipo B', 'B', '47-52 gr'),
-(6, 'Tipo C', 'C', '46 gr');
+(1, 'Jumbo', 'J', 78),
+(2, 'triple A', 'AAA', 67),
+(3, 'Doble A', 'AA', 60),
+(4, 'Tipo A', 'A', 53),
+(5, 'Tipo B', 'B', 47),
+(6, 'Tipo C', 'C', 46);
 
 -- --------------------------------------------------------
 
@@ -1510,25 +1510,22 @@ INSERT INTO `tipohuevo` (`IdTipoHuevo`, `nombre`, `abreviatura`, `peso`) VALUES
 
 CREATE TABLE `tipoinsumo` (
   `IdTipoInsumo` int(11) NOT NULL,
-  `nombre` varchar(45) NOT NULL,
+  `nombreInsumo` varchar(45) DEFAULT NULL,
   `cantidad` double NOT NULL,
   `valor` double NOT NULL,
   `fechaInsumo` date NOT NULL,
-  `descripcion` varchar(60) NOT NULL,
-  `proveedor_IdProveedor` int(11) NOT NULL
+  `descripcion` varchar(60) DEFAULT NULL,
+  `Proveedor_IdProveedor` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `tipoinsumo`
 --
 
-INSERT INTO `tipoinsumo` (`IdTipoInsumo`, `nombre`, `cantidad`, `valor`, `fechaInsumo`, `descripcion`, `proveedor_IdProveedor`) VALUES
-(1, '', 10, 500000, '2021-04-10', '', 2),
-(2, '', 20, 1000000, '2021-04-10', '', 4),
-(3, '', 15, 100000, '2021-04-10', '', 1),
-(4, '', 10, 3000000, '2021-05-20', '', 3),
-(5, '', 10, 500000, '2021-06-10', '', 2),
-(6, '', 10, 500000, '2021-08-05', '', 4);
+INSERT INTO `tipoinsumo` (`IdTipoInsumo`, `nombreInsumo`, `cantidad`, `valor`, `fechaInsumo`, `descripcion`, `Proveedor_IdProveedor`) VALUES
+(1, 'Alimentos', 10, 500000, '2021-04-10', 'alimento para aves', 1),
+(2, 'Medicamentos', 20, 1000000, '2021-04-10', 'medicamentos comprados', 3),
+(3, 'Otro', 15, 100000, '2021-04-10', 'otros insumos', 4);
 
 -- --------------------------------------------------------
 
@@ -1538,17 +1535,17 @@ INSERT INTO `tipoinsumo` (`IdTipoInsumo`, `nombre`, `cantidad`, `valor`, `fechaI
 
 CREATE TABLE `venta` (
   `IdVenta` int(11) NOT NULL,
-  `nombreVenta` varchar(40) NOT NULL,
+  `nombreVenta` varchar(45) NOT NULL,
   `totalVenta` double NOT NULL,
   `fechaVenta` date NOT NULL,
-  `lote_IdLote` int(11) NOT NULL
+  `Lote_IdLote` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `venta`
 --
 
-INSERT INTO `venta` (`IdVenta`, `nombreVenta`, `totalVenta`, `fechaVenta`, `lote_IdLote`) VALUES
+INSERT INTO `venta` (`IdVenta`, `nombreVenta`, `totalVenta`, `fechaVenta`, `Lote_IdLote`) VALUES
 (1, 'Huevo', 200, '2021-09-15', 2),
 (2, 'Animal Pie', 50, '2021-10-25', 1),
 (3, 'Otro', 15, '2021-09-15', 2);
@@ -1562,21 +1559,21 @@ INSERT INTO `venta` (`IdVenta`, `nombreVenta`, `totalVenta`, `fechaVenta`, `lote
 --
 ALTER TABLE `autentificacionusuario`
   ADD PRIMARY KEY (`IdAutentificacionUsuario`),
-  ADD UNIQUE KEY `registroUsuario_IdNumeroIdentificacion` (`registroUsuario_IdRegistroUsuario`) USING BTREE;
+  ADD KEY `RegistroUsuario_IdRegistroUsuario` (`RegistroUsuario_IdRegistroUsuario`);
 
 --
 -- Indices de la tabla `ciudad`
 --
 ALTER TABLE `ciudad`
-  ADD PRIMARY KEY (`idCiudad`),
-  ADD KEY `Departamento_idDepartamento` (`departamento_IdDepartamento`);
+  ADD PRIMARY KEY (`IdCiudad`),
+  ADD KEY `Departamento_IdDepartamento` (`Departamento_IdDepartamento`);
 
 --
 -- Indices de la tabla `departamento`
 --
 ALTER TABLE `departamento`
   ADD PRIMARY KEY (`IdDepartamento`),
-  ADD KEY `Pais_idPais` (`pais_IdPais`);
+  ADD KEY `Pais_IdPais` (`Pais_IdPais`);
 
 --
 -- Indices de la tabla `especieavicola`
@@ -1601,25 +1598,25 @@ ALTER TABLE `genero`
 --
 ALTER TABLE `lote`
   ADD PRIMARY KEY (`IdLote`),
-  ADD KEY `TipoInsumo_idTipoInsumo` (`tipoInsumo_IdTipoInsumo`),
-  ADD KEY `Raza_idRaza` (`raza_IdRaza`),
-  ADD KEY `estado_IdEstado` (`estado_IdEstado`);
+  ADD KEY `TipoInsumo_IdTipoInsumo` (`TipoInsumo_IdTipoInsumo`),
+  ADD KEY `Raza_IdRaza` (`Raza_IdRaza`),
+  ADD KEY `Estado_IdEstado` (`Estado_IdEstado`);
 
 --
 -- Indices de la tabla `pais`
 --
 ALTER TABLE `pais`
   ADD PRIMARY KEY (`IdPais`),
-  ADD KEY `estado_IdEstado` (`estado_IdEstado`);
+  ADD KEY `Estado_IdEstado` (`Estado_IdEstado`);
 
 --
 -- Indices de la tabla `proveedor`
 --
 ALTER TABLE `proveedor`
   ADD PRIMARY KEY (`IdProveedor`),
-  ADD KEY `estado_IdEstado` (`estado_IdEstado`),
-  ADD KEY `rol_IdRol` (`rol_IdRol`) USING BTREE,
-  ADD KEY `proveedor_ibfk_1` (`ciudad_IdCiudad`);
+  ADD KEY `Ciudad_IdCiudad` (`Ciudad_IdCiudad`),
+  ADD KEY `Rol_IdRol` (`Rol_IdRol`),
+  ADD KEY `Estado_IdEstado` (`Estado_IdEstado`);
 
 --
 -- Indices de la tabla `raza`
@@ -1632,10 +1629,10 @@ ALTER TABLE `raza`
 --
 ALTER TABLE `registrousuario`
   ADD PRIMARY KEY (`IdRegistroUsuario`),
-  ADD KEY `TipoDeIdentificacion_idTipoDeIdentificacion` (`TipoDeIdentificacion_idTipoDeIdentificacion`),
-  ADD KEY `Genero_idGenero` (`Genero_idGenero`),
-  ADD KEY `Ciudad_idCiudad` (`Ciudad_idCiudad`),
-  ADD KEY `Rol_idRol` (`Rol_idRol`),
+  ADD KEY `Ciudad_IdCiudad` (`Ciudad_IdCiudad`),
+  ADD KEY `Rol_IdRol` (`Rol_IdRol`),
+  ADD KEY `TipoDeIdentificacion_IdTipoDeIdentificacion` (`TipoDeIdentificacion_IdTipoDeIdentificacion`),
+  ADD KEY `Genero_IdGenero` (`Genero_IdGenero`),
   ADD KEY `Estado_IdEstado` (`Estado_IdEstado`);
 
 --
@@ -1643,8 +1640,8 @@ ALTER TABLE `registrousuario`
 --
 ALTER TABLE `registrozootecnico`
   ADD PRIMARY KEY (`IdRegistroZootecnico`),
-  ADD KEY `estado_IdEstado` (`estado_IdEstado`),
-  ADD KEY `lote_IdLote` (`lote_IdLote`);
+  ADD KEY `Estado_IdEstado` (`Estado_IdEstado`),
+  ADD KEY `Lote_IdLote` (`Lote_IdLote`);
 
 --
 -- Indices de la tabla `rol`
@@ -1668,18 +1665,37 @@ ALTER TABLE `tipohuevo`
 -- Indices de la tabla `tipoinsumo`
 --
 ALTER TABLE `tipoinsumo`
-  ADD PRIMARY KEY (`IdTipoInsumo`);
+  ADD PRIMARY KEY (`IdTipoInsumo`),
+  ADD KEY `Proveedor_IdProveedor` (`Proveedor_IdProveedor`);
 
 --
 -- Indices de la tabla `venta`
 --
 ALTER TABLE `venta`
   ADD PRIMARY KEY (`IdVenta`),
-  ADD KEY `lote_idLote` (`lote_IdLote`);
+  ADD KEY `Lote_IdLote` (`Lote_IdLote`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `autentificacionusuario`
+--
+ALTER TABLE `autentificacionusuario`
+  MODIFY `IdAutentificacionUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `ciudad`
+--
+ALTER TABLE `ciudad`
+  MODIFY `IdCiudad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1107;
+
+--
+-- AUTO_INCREMENT de la tabla `departamento`
+--
+ALTER TABLE `departamento`
+  MODIFY `IdDepartamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de la tabla `especieavicola`
@@ -1688,10 +1704,28 @@ ALTER TABLE `especieavicola`
   MODIFY `IdEspecieAvicola` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT de la tabla `estado`
+--
+ALTER TABLE `estado`
+  MODIFY `IdEstado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `genero`
+--
+ALTER TABLE `genero`
+  MODIFY `IdGenero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `lote`
 --
 ALTER TABLE `lote`
   MODIFY `IdLote` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `pais`
+--
+ALTER TABLE `pais`
+  MODIFY `IdPais` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedor`
@@ -1718,10 +1752,28 @@ ALTER TABLE `registrozootecnico`
   MODIFY `IdRegistroZootecnico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT de la tabla `rol`
+--
+ALTER TABLE `rol`
+  MODIFY `IdRol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `tipodeidentificacion`
+--
+ALTER TABLE `tipodeidentificacion`
+  MODIFY `IdTipoDeIdentificacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT de la tabla `tipohuevo`
 --
 ALTER TABLE `tipohuevo`
   MODIFY `IdTipoHuevo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `tipoinsumo`
+--
+ALTER TABLE `tipoinsumo`
+  MODIFY `IdTipoInsumo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `venta`
@@ -1734,34 +1786,73 @@ ALTER TABLE `venta`
 --
 
 --
+-- Filtros para la tabla `autentificacionusuario`
+--
+ALTER TABLE `autentificacionusuario`
+  ADD CONSTRAINT `autentificacionusuario_ibfk_1` FOREIGN KEY (`RegistroUsuario_IdRegistroUsuario`) REFERENCES `registrousuario` (`IdRegistroUsuario`);
+
+--
 -- Filtros para la tabla `ciudad`
 --
 ALTER TABLE `ciudad`
-  ADD CONSTRAINT `ciudad_ibfk_1` FOREIGN KEY (`Departamento_idDepartamento`) REFERENCES `departamento` (`idDepartamento`);
+  ADD CONSTRAINT `ciudad_ibfk_1` FOREIGN KEY (`Departamento_IdDepartamento`) REFERENCES `departamento` (`IdDepartamento`);
 
 --
 -- Filtros para la tabla `departamento`
 --
 ALTER TABLE `departamento`
-  ADD CONSTRAINT `departamento_ibfk_1` FOREIGN KEY (`Pais_idPais`) REFERENCES `pais` (`idPais`);
+  ADD CONSTRAINT `departamento_ibfk_1` FOREIGN KEY (`Pais_IdPais`) REFERENCES `pais` (`IdPais`);
+
+--
+-- Filtros para la tabla `lote`
+--
+ALTER TABLE `lote`
+  ADD CONSTRAINT `lote_ibfk_1` FOREIGN KEY (`TipoInsumo_IdTipoInsumo`) REFERENCES `tipoinsumo` (`IdTipoInsumo`),
+  ADD CONSTRAINT `lote_ibfk_2` FOREIGN KEY (`Raza_IdRaza`) REFERENCES `raza` (`IdRaza`),
+  ADD CONSTRAINT `lote_ibfk_3` FOREIGN KEY (`Estado_IdEstado`) REFERENCES `estado` (`IdEstado`);
+
+--
+-- Filtros para la tabla `pais`
+--
+ALTER TABLE `pais`
+  ADD CONSTRAINT `pais_ibfk_1` FOREIGN KEY (`Estado_IdEstado`) REFERENCES `estado` (`IdEstado`);
 
 --
 -- Filtros para la tabla `proveedor`
 --
 ALTER TABLE `proveedor`
-  ADD CONSTRAINT `proveedor_ibfk_1` FOREIGN KEY (`ciudad_IdCiudad`) REFERENCES `ciudad` (`idCiudad`),
-  ADD CONSTRAINT `proveedor_ibfk_2` FOREIGN KEY (`rol_IdRol`) REFERENCES `rol` (`idRol`),
-  ADD CONSTRAINT `proveedor_ibfk_3` FOREIGN KEY (`estado_IdEstado`) REFERENCES `estado` (`idEstado`);
+  ADD CONSTRAINT `proveedor_ibfk_1` FOREIGN KEY (`Ciudad_IdCiudad`) REFERENCES `ciudad` (`IdCiudad`),
+  ADD CONSTRAINT `proveedor_ibfk_2` FOREIGN KEY (`Rol_IdRol`) REFERENCES `rol` (`IdRol`),
+  ADD CONSTRAINT `proveedor_ibfk_3` FOREIGN KEY (`Estado_IdEstado`) REFERENCES `estado` (`IdEstado`);
 
 --
 -- Filtros para la tabla `registrousuario`
 --
 ALTER TABLE `registrousuario`
-  ADD CONSTRAINT `registrousuario_ibfk_1` FOREIGN KEY (`TipoDeIdentificacion_idTipoDeIdentificacion`) REFERENCES `tipodeidentificacion` (`idTipoDeIdentificacion`),
-  ADD CONSTRAINT `registrousuario_ibfk_2` FOREIGN KEY (`Genero_idGenero`) REFERENCES `genero` (`idGenero`),
-  ADD CONSTRAINT `registrousuario_ibfk_3` FOREIGN KEY (`Ciudad_idCiudad`) REFERENCES `ciudad` (`idCiudad`),
-  ADD CONSTRAINT `registrousuario_ibfk_4` FOREIGN KEY (`Rol_idRol`) REFERENCES `rol` (`idRol`),
-  ADD CONSTRAINT `registrousuario_ibfk_5` FOREIGN KEY (`Estado_IdEstado`) REFERENCES `estado` (`idEstado`);
+  ADD CONSTRAINT `registrousuario_ibfk_1` FOREIGN KEY (`Ciudad_IdCiudad`) REFERENCES `ciudad` (`IdCiudad`),
+  ADD CONSTRAINT `registrousuario_ibfk_2` FOREIGN KEY (`Rol_IdRol`) REFERENCES `rol` (`IdRol`),
+  ADD CONSTRAINT `registrousuario_ibfk_3` FOREIGN KEY (`TipoDeIdentificacion_IdTipoDeIdentificacion`) REFERENCES `tipodeidentificacion` (`IdTipoDeIdentificacion`),
+  ADD CONSTRAINT `registrousuario_ibfk_4` FOREIGN KEY (`Genero_IdGenero`) REFERENCES `genero` (`IdGenero`),
+  ADD CONSTRAINT `registrousuario_ibfk_5` FOREIGN KEY (`Estado_IdEstado`) REFERENCES `estado` (`IdEstado`);
+
+--
+-- Filtros para la tabla `registrozootecnico`
+--
+ALTER TABLE `registrozootecnico`
+  ADD CONSTRAINT `registrozootecnico_ibfk_1` FOREIGN KEY (`Estado_IdEstado`) REFERENCES `estado` (`IdEstado`),
+  ADD CONSTRAINT `registrozootecnico_ibfk_2` FOREIGN KEY (`Lote_IdLote`) REFERENCES `lote` (`IdLote`);
+
+--
+-- Filtros para la tabla `tipoinsumo`
+--
+ALTER TABLE `tipoinsumo`
+  ADD CONSTRAINT `tipoinsumo_ibfk_1` FOREIGN KEY (`Proveedor_IdProveedor`) REFERENCES `proveedor` (`IdProveedor`);
+
+--
+-- Filtros para la tabla `venta`
+--
+ALTER TABLE `venta`
+  ADD CONSTRAINT `venta_ibfk_1` FOREIGN KEY (`Lote_IdLote`) REFERENCES `lote` (`IdLote`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
