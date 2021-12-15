@@ -1,0 +1,130 @@
+ESTADO
+INSERT INTO Estado  VALUES (1,'Activo');
+INSERT INTO Estado  VALUES (2,'Inactivo');
+
+PAIS
+INSERT INTO Pais  VALUES (1,'Colombia','COL',1);
+
+DEPARTAMENETO
+INSERT INTO Departamento VALUES (1, 'Antioquia', 1);
+INSERT INTO Departamento VALUES (2, 'Atlantico', 1);
+INSERT INTO Departamento VALUES (3, 'Bogotá D. C.', 1);
+INSERT INTO Departamento VALUES (4, 'Bolivar', 1);
+INSERT INTO Departamento VALUES (5, 'Boyaca', 1);
+INSERT INTO Departamento VALUES (6, 'Caldas', 1);
+INSERT INTO Departamento VALUES (7, 'Caqueta', 1);
+INSERT INTO Departamento VALUES (8, 'Cauca', 1);
+INSERT INTO Departamento VALUES (9, 'Cesar', 1);
+INSERT INTO Departamento VALUES (10,'Cordoba', 1);
+INSERT INTO Departamento VALUES (11,'Cundinamarca', 1);
+INSERT INTO Departamento VALUES (12,'Choco', 1);
+INSERT INTO Departamento VALUES (13,'Huila', 1);
+INSERT INTO Departamento VALUES (14,'La Guajira', 1);
+INSERT INTO Departamento VALUES (15,'Magdalena', 1);
+INSERT INTO Departamento VALUES (16,'Meta', 1);
+INSERT INTO Departamento VALUES (17,'Nariño', 1);
+INSERT INTO Departamento VALUES (18,'Norte de Santander', 1);
+INSERT INTO Departamento VALUES (19,'Quindio', 1);
+INSERT INTO Departamento VALUES (20,'Risaralda', 1);
+INSERT INTO Departamento VALUES (21,'Santander', 1);
+INSERT INTO Departamento VALUES (22,'Sucre', 1);
+INSERT INTO Departamento VALUES (23,'Tolima', 1);
+INSERT INTO Departamento VALUES (24,'Valle', 1);
+INSERT INTO Departamento VALUES (25,'Arauca', 1);
+INSERT INTO Departamento VALUES (26,'Casanare', 1);
+INSERT INTO Departamento VALUES (27,'Putumayo', 1);
+INSERT INTO Departamento VALUES (28,'San Andres', 1);
+INSERT INTO Departamento VALUES (29,'Amazonas', 1);
+INSERT INTO Departamento VALUES (30,'Guainia', 1);
+INSERT INTO Departamento VALUES (31,'Guaviare', 1);
+INSERT INTO Departamento VALUES (32,'Vaupes', 1);
+INSERT INTO Departamento VALUES (33,'Vichada', 1);
+
+TIPODEIDENTIFICACION
+INSERT INTO TipoDeIdentificacion VALUES (1,'Cedula de Ciudadania','C.C');
+INSERT INTO TipoDeIdentificacion VALUES (2,'Pasaporte','PA');
+INSERT INTO TipoDeIdentificacion VALUES (3,'Cedula de Extranjeria','C.E');
+
+ROL
+INSERT INTO Rol VALUES (1, 'Administrador');
+INSERT INTO Rol VALUES (2, 'Empleado');
+INSERT INTO Rol VALUES (3, 'Proveedor');
+
+GENERO
+INSERT INTO Genero VALUES (1, 'Masculino', 'M');
+INSERT INTO Genero VALUES (2, 'Femenino', 'F');
+
+ESPECIEAVICOLA
+INSERT INTO EspecieAvicola VALUES (1, 'Gallina');
+INSERT INTO EspecieAvicola VALUES (2, 'Codorniz');
+
+REGISTROUSUARIO
+INSERT INTO RegistroUsuario VALUES (1,1012383580,'Paola Andrea','Osorio Morales', 'Natural', '1991/11/08', '3125538515','CLL 87 # 60A 81',20,1,1,2,1);
+INSERT INTO RegistroUsuario VALUES (2,3854721,'Juan Carlos','Suarez Ibañez', 'Natural', '1985/06/20', '3143174487','CLL 67a # 15-45',3,2,1,1,1);
+INSERT INTO RegistroUsuario VALUES (3, '103568452', 'Nicolas','Rodriguez Ricardo', 'Natural', '1998/03/10', '3178287705','CLL 19 # 57h 20',9,2,1,1,1);
+
+AUTENTIFICACION
+INSERT INTO AutentificacionUsuario VALUES (1,'paosorio08@misena.edu.co',MD5('1234'),1);
+INSERT INTO AutentificacionUsuario VALUES (2,'juacsuarez8@misena.edu.co',MD5('1234'),2);
+INSERT INTO AutentificacionUsuario VALUES (3,'nrodriguez482@misena.edu.co',MD5('1234'),3);
+
+RAZA
+INSERT INTO Raza VALUES (1,'Linea Genetica',3);
+INSERT INTO Raza VALUES (2,'Raza Tradicional',4);
+
+PROVEEDOR
+INSERT INTO Proveedor VALUES (1,'Colanta', '3700202', 'Cll 17 # 32-28','colanta@ltda.com',522,3,1);
+INSERT INTO Proveedor VALUES (2,'Italcol','2658200','carrera 4 A bis No. 34-43','italco@colombia.com',962,3,1);
+INSERT INTO Proveedor VALUES (3,'Contegral', '3743211', 'Autopista el Dorado carretera soledad','contegral@caribe.com',145,3,1);
+INSERT INTO Proveedor VALUES (4,'Solla','3382655','Calle 37 No. 14-46','solla@incubalco.com',149,3,1);
+
+TIPOINSUMO
+INSERT INTO TipoInsumo VALUES (1,'Alimentos',10,500000,'2021/04/10','alimento para aves',1);
+INSERT INTO TipoInsumo VALUES (2,'Medicamentos',20,1000000,'2021/04/10','medicamentos comprados',3);
+INSERT INTO TipoInsumo VALUES (3,'Otro',15,100000,'2021/04/10','otros insumos',4);
+
+
+LOTE
+INSERT INTO Lote VALUES (1,'2021/01/10',10,6000000,350,'2021/01/12',600000,'35',2,1,1);
+INSERT INTO Lote VALUES (2,'2021/02/15',30,4000000,700,'2021/01/20',150000,'50',3,1,1);
+INSERT INTO Lote VALUES (3,'2021/02/28',5,750000,890,'2021/03/12',2000000,'40',2,2,1);
+INSERT INTO Lote VALUES (4,'2021/03/15',18,1400000,1100,'2021/03/25',500000,'20',2,2,1);
+INSERT INTO Lote VALUES (5,'2021/04/10',25,780000,500,'2021/04/18',150000,'33',1,2,1);
+INSERT INTO Lote VALUES (6,'2021/05/05',10,1400000,1000,'2021/05/27',50000,'35',3,2,1);
+
+REGISTROZOOTECNICO
+INSERT INTO registrozootecnico VALUES (1, '2020/02/20','2.60',50,20,1,6);
+INSERT INTO registrozootecnico VALUES (2, '2021/04/10','2.60',50,20,1,4);
+INSERT INTO registrozootecnico VALUES (3, '2021/04/28','2.60',100,50,1,1);
+INSERT INTO registrozootecnico VALUES (4, '2021/05/20','1.60',40,15,1,3);
+INSERT INTO registrozootecnico VALUES (5, '2021/06/30','2.60',50,20,1,4);
+INSERT INTO registrozootecnico VALUES (6, '2021/07/15','3.60',200,100,1,2);
+INSERT INTO registrozootecnico VALUES (7, '2021/08/20','5.60',400,100,1,5);
+INSERT INTO registrozootecnico VALUES (8, '2021/09/20','2.60',50,20,1,2);
+
+TIPOHUEVO
+INSERT INTO tipohuevo VALUES (1,'Jumbo','J','78 gr');
+INSERT INTO tipohuevo VALUES (2,'triple A','AAA','67-77 gr');
+INSERT INTO tipohuevo VALUES (3,'Doble A','AA','60-66 gr');
+INSERT INTO tipohuevo VALUES (4,'Tipo A','A','53-59 gr');
+INSERT INTO tipohuevo VALUES (5,'Tipo B','B','47-52 gr');
+INSERT INTO tipohuevo VALUES (6,'Tipo C','C','46 gr');
+
+VENTA
+INSERT INTO `venta` VALUES (1, 'Huevo', 200, '2021-09-15', 2);
+INSERT INTO `venta` VALUES (2, 'Animal Pie', 50, '2021-10-25', 1);
+INSERT INTO `venta` VALUES (3, 'Otro', 15, '2021-09-15', 2);
+
+
+
+
+SELECT *, nombreProducto,descripcion,precio
+FROM producto
+INNER JOIN proveedor
+on producto.idProducto = proveedor.idProveedor
+
+SELECT *,
+registrousuario.nombre, registrousuario.apellido,registrousuario.correoElectronico, registrousuario.numeroTelefonico, rol.idRol, rol.NombreRol
+FROM registrousuario 
+LEFT JOIN rol
+ON registrousuario.Rol_idRol = rol.idRol

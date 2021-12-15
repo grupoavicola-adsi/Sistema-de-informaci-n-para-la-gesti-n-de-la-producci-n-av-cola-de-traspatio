@@ -1,0 +1,208 @@
+CREATE database SipGAU;
+USE SipGAU;
+
+CREATE TABLE Estado (
+  IdEstado INT NOT NULL AUTO_INCREMENT,
+  nombreEstado VARCHAR(11) NOT NULL,
+  PRIMARY KEY (IdEstado)
+);
+
+Describe Estado;
+
+CREATE TABLE Pais (
+  IdPais INT NOT NULL AUTO_INCREMENT,
+  nombrePais VARCHAR(45) NOT NULL,
+  abreviaturaPais VARCHAR(45) NOT NULL,
+  Estado_IdEstado INT NOT NULL,
+  FOREIGN KEY (Estado_IdEstado) REFERENCES Estado (IdEstado),
+  PRIMARY KEY (IdPais)  
+);
+Describe Pais;
+
+CREATE TABLE Departamento (
+  IdDepartamento INT NOT NULL AUTO_INCREMENT,
+  nombreDepartamento VARCHAR(45) NOT NULL,
+  Pais_IdPais INT NOT NULL,
+  FOREIGN KEY (Pais_IdPais) REFERENCES Pais (IdPais),
+  PRIMARY KEY (IdDepartamento)
+);
+Describe Departamento;
+
+
+CREATE TABLE Ciudad (
+  IdCiudad INT NOT NULL AUTO_INCREMENT,
+  nombreCiudad VARCHAR(45) NOT NULL,
+  Departamento_IdDepartamento INT NOT NULL,
+  FOREIGN KEY (Departamento_IdDepartamento) REFERENCES Departamento (IdDepartamento),
+  PRIMARY KEY (IdCiudad) 
+);
+Describe Ciudad;
+
+CREATE TABLE TipoDeIdentificacion (
+  IdTipoDeIdentificacion INT NOT NULL AUTO_INCREMENT,
+  nombreIdentificacion VARCHAR(45) NOT NULL,
+  abreviatura VARCHAR(45) NOT NULL,
+  PRIMARY KEY (IdTipoDeIdentificacion) 
+);
+
+Describe TipoDeIdentificacion;
+
+CREATE TABLE Rol (
+  IdRol INT NOT NULL AUTO_INCREMENT,
+  nombreRol VARCHAR(45) NOT NULL,
+  PRIMARY KEY (IdRol)
+);
+
+Describe Rol;
+
+
+CREATE TABLE Genero (
+  IdGenero INT NOT NULL AUTO_INCREMENT,
+  nombreGenero VARCHAR(45) NOT NULL,
+  abreviatura VARCHAR(45) NOT NULL,
+  PRIMARY KEY (IdGenero)
+);
+
+Describe Genero;
+
+
+CREATE TABLE EspecieAvicola (
+  IdEspecieAvicola INT NOT NULL AUTO_INCREMENT,
+  nombreAvicola VARCHAR(45) NOT NULL,
+  PRIMARY KEY (IdEspecieAvicola)
+);
+
+Describe EspecieAvicola;
+
+CREATE TABLE RegistroUsuario (
+  IdRegistroUsuario INT NOT NULL AUTO_INCREMENT,
+  numeroIdentificacion INT NOT NULL,
+  nombre VARCHAR(45) NOT NULL,
+  apellido VARCHAR(45) NOT NULL,
+  razonSocial VARCHAR(45) NULL,
+  fechaDeNacimiento DATE NOT NULL,
+  numeroTelefonico VARCHAR(10) NOT NULL,
+  Direccion VARCHAR(45) NOT NULL,
+  Ciudad_IdCiudad INT NOT NULL,
+  FOREIGN KEY (Ciudad_IdCiudad) REFERENCES Ciudad (IdCiudad),
+  Rol_IdRol INT NOT NULL,
+  FOREIGN KEY (Rol_IdRol) REFERENCES Rol (IdRol),
+  TipoDeIdentificacion_IdTipoDeIdentificacion INT NOT NULL,
+  FOREIGN KEY (TipoDeIdentificacion_IdTipoDeIdentificacion) REFERENCES TipoDeIdentificacion (IdTipoDeIdentificacion),
+  Genero_IdGenero INT NOT NULL,
+  FOREIGN KEY (Genero_IdGenero) REFERENCES Genero (IdGenero),
+  Estado_IdEstado int NOT NULL,
+  FOREIGN KEY (Estado_IdEstado) REFERENCES Estado (IdEstado),
+  PRIMARY KEY (IdRegistroUsuario)
+  );
+
+Describe RegistroUsuario;
+
+CREATE TABLE AutentificacionUsuario(
+  IdAutentificacionUsuario INT NOT NULL AUTO_INCREMENT,
+  correoElectronico VARCHAR(45) NOT NULL,
+  contraseña VARCHAR(45) NOT NULL,
+  RegistroUsuario_IdRegistroUsuario INT NOT NULL,
+  FOREIGN KEY (RegistroUsuario_IdRegistroUsuario) REFERENCES RegistroUsuario (IdRegistroUsuario),
+  PRIMARY KEY (IdAutentificacionUsuario) 
+);
+
+Describe RegistroUsuario;
+
+CREATE TABLE Raza (
+  IdRaza INT NOT NULL AUTO_INCREMENT,
+  nombreRaza VARCHAR(45) NOT NULL,
+  pesoPromedioKL DECIMAL  NOT NULL,
+  PRIMARY KEY (IdRaza)
+);
+
+Describe Raza;
+
+CREATE TABLE Proveedor (
+  IdProveedor INT NOT NULL AUTO_INCREMENT,
+  nombre VARCHAR(45) NOT NULL,
+  numeroTelefonico VARCHAR(10) NOT NULL,
+  Direccion VARCHAR(45) NOT NULL,
+  correoElectronico VARCHAR(45) NOT NULL,
+  Ciudad_IdCiudad INT NOT NULL,
+  FOREIGN KEY (Ciudad_IdCiudad) REFERENCES Ciudad (IdCiudad),
+  Rol_IdRol INT NOT NULL,
+  FOREIGN KEY (Rol_IdRol) REFERENCES Rol (IdRol),
+  Estado_IdEstado INT NOT NULL,
+  FOREIGN KEY (Estado_IdEstado) REFERENCES Estado (IdEstado),
+  PRIMARY KEY (IdProveedor)
+);
+
+Describe Proveedor;
+
+CREATE TABLE TipoInsumo (
+  IdTipoInsumo INT NOT NULL AUTO_INCREMENT,
+  nombreInsumo VARCHAR (45),
+  cantidad DOUBLE NOT NULL,
+  valor DOUBLE NOT NULL,
+  fechaInsumo DATE NOT NULL,
+  descripcion VARCHAR (60),
+  Proveedor_IdProveedor INT NOT NULL,
+  FOREIGN KEY (Proveedor_IdProveedor) REFERENCES Proveedor (IdProveedor),
+  PRIMARY KEY (IdTipoInsumo)
+);
+
+Describe TipoInsumo;
+
+CREATE TABLE Lote (
+  IdLote INT NOT NULL AUTO_INCREMENT,  
+  fechaDeInicio DATE NOT NULL,
+  cantidadAves INT NOT NULL,
+  valorCostos DOUBLE NOT NULL,
+  cantidadHuevoProducido INT NOT NULL,
+  fechaInicioDeProduccion DATE NOT NULL,
+  valorPasivoDeProduccion DOUBLE NOT NULL,
+  pesoTotal DECIMAL NOT NULL,
+  TipoInsumo_IdTipoInsumo INT NOT NULL,
+  FOREIGN KEY (TipoInsumo_IdTipoInsumo) REFERENCES TipoInsumo (IdTipoInsumo),
+  Raza_IdRaza INT NOT NULL,
+  FOREIGN KEY (Raza_IdRaza) REFERENCES Raza (IdRaza),
+  Estado_IdEstado INT NOT NULL,
+  FOREIGN KEY (Estado_IdEstado) REFERENCES Estado (IdEstado),
+  PRIMARY KEY (IdLote)
+  );
+
+Describe Lote;
+
+
+CREATE TABLE RegistroZootecnico (
+  IdRegistroZootecnico INT NOT NULL AUTO_INCREMENT,
+  fechaRegistro DATE NOT NULL,
+  conversionAlimenticia VARCHAR(45) NOT NULL,
+  huevoProducido INT NOT NULL,
+  huevoAveria INT NOT NULL,
+  Estado_IdEstado INT NOT NULL,
+  FOREIGN KEY (Estado_IdEstado) REFERENCES Estado (IdEstado),
+  Lote_IdLote INT NOT NULL,
+  FOREIGN KEY (Lote_IdLote) REFERENCES Lote (IdLote),
+  PRIMARY KEY (IdRegistroZootecnico)
+);
+
+Describe RegistroZootecnico;
+
+CREATE TABLE TipoHuevo (
+  IdTipoHuevo INT NOT NULL AUTO_INCREMENT,
+  nombre VARCHAR(45) NOT NULL,
+  abreviatura VARCHAR(45) NOT NULL,
+  peso DOUBLE NOT NULL,
+  PRIMARY KEY (IdTipoHuevo)
+);
+
+Describe TipoHuevo;
+
+CREATE TABLE Venta(
+  IdVenta INT NOT NULL AUTO_INCREMENT,
+  nombreVenta VARCHAR(45) NOT NULL,
+  totalVenta DOUBLE NOT NULL,
+  fechaVenta DATE NOT NULL,
+  Lote_IdLote INT NOT NULL,
+  FOREIGN KEY (Lote_IdLote) REFERENCES Lote (IdLote),
+  PRIMARY KEY (IdVenta)
+);
+
+Describe Venta;
